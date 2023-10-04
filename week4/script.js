@@ -23,4 +23,23 @@ $(document).ready(function() {
         var email = $("#email").val();
         alert(username + " " + email);
     })
+
+    $("#courseslist").change(function() {
+        var course = $(this).val();
+
+        if(course == "all") {
+            $("#business").show();
+            $("#computer").show();
+        }
+        
+        else if(course == "bus") {
+            $("#business").show();
+            $("#computer").hide();
+        }
+
+        else if(course == "cps") {
+            $("#business").hide();
+            $("#computer").show();
+        }
+    })
 });

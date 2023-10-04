@@ -31,7 +31,12 @@ input {
     flex-direction: column;
 }
 
-textarea {
-    margin-block: .3rem;
-    color: black;
+.list {
+    display: flex;
+
+}
+.course {
+    background-color: gray;
+    margin: .5rem;
+    padding: 1rem;
 }
