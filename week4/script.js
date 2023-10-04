@@ -18,8 +18,9 @@ $(document).ready(function() {
         $(this).css("border-radius", "0px");
     });
 
-    $("button").click(function() {
-        // $("textarea").append($(".html-container").html());
-        alert($("html").html());
+    $("#bt").click(function() {
+        var username = $("#username").val();
+        var email = $("#email").val();
+        alert(username + " " + email);
     })
 });
