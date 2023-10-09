@@ -7,10 +7,18 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        * {
+            font-size: 2rem;
+        }
+    </style>
     <?php
-        $x = 5;
+        $x = 8;
+        $y = 36;
 
-        function 
+        echo $x > 5 && $y > 5 ? "true" : "false";
+        echo "<br>";
+        echo $z ?? "does not exist";
     ?>
 </body>
 </html>
