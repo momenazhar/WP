@@ -10,10 +10,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 class="text-center">PHP Requests</h1>
+    <h1 class="text-center bold">PHP Requests</h1>
     <div class="container-fluid outer justify-content-center">
+        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" class="form-input">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" name="first_name">
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+        <hr>
         <?php
-            echo $_SERVER[''];
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $name = $_POST['first_name'];
+                if(!$name) {
+                    echo "<p>Name is <strong>empty</strong></p>";
+                } else {
+                    echo "<p>Name is <strong>".$name."</strong></p>";
+                }
+            }
         ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
