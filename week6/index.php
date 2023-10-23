@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="query.js"></script>
 </head>
 <body>
-    <h1 class="text-center bold">PHP Requests</h1>
+    <!-- <h1 class="text-center bold">PHP Requests</h1>
     <div class="container-fluid outer justify-content-center">
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" class="form-input">
             <label for="first_name">First Name</label>
@@ -40,7 +44,14 @@
             echo "<p>Course: <strong>".$course."</strong></p>";
             echo "<p>Week: <strong>".$week."</strong></p>";
         ?>
-    </div>
+    </div> -->
+    <input class="in" type="text">
+    <button class="sub">change</button>
+    <?php
+        $_SESSION['color'] = 'blue';
+        $color = $_SESSION['color'];
+        echo "<h1 style='color: $color' class='heading'>".$color."</h1>";
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
