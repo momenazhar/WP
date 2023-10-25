@@ -26,6 +26,7 @@
                     <th>Date of Birth</th>
                 </tr>
                 <?php
+                if(mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>".
                             "<td>".$row['id']."</td>".
@@ -35,42 +36,32 @@
                             "<td>".$row['dob']."</td>"
                         ."</tr>";
                     }
+                } else {
+                    echo "No records";
+                }
                 ?>
             </table>
         </div>
         <div class="container">
-            <form action="index.php" method="get">
-                <input type="text" name="name" class="form-control nameInput">
+            <form action="insert.php" method="post">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control nameInput" placeholder="Insert Name">
                 <br>
-                <input type="email" name="email" class="form-control emailInput">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control emailInput" placeholder="Insert Email">
                 <br>
+                <label for="gender">Gender</label>
                 <select name="gender" class="form-control genderInput">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
                 <br>
+                <label for="dob">Date of Birth</label>
                 <input type="date" name="dob" class="form-control dateInput">
                 <br>
                 <button class="btn btn-primary submission" type="submit">Insert Data</button>
             </form>
         </div>
-        <?php
-                if($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $name = $_GET['name'];
-                    $email = $_GET['email'];
-                    $gender = $_GET['gender'];
-                    $dob = $_GET['dob'];
-                if(!$name | !$email | !$gender | !$dob) {
-                } else {
-                    $insert = "INSERT INTO `student`(`name`, `email`, `gender`, `dob`) VALUES ('$name', '$email', '$gender', '$dob');";
-
-                    if(mysqli_query($conn, $insert)) {
-                    } else {
-                        mysqli_error($conn);
-                    }
-                }
-            }
-        ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
