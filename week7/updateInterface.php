@@ -41,7 +41,7 @@
                                 "<td><input type='text' name='nameEdit' value='$name' class='form-control'></td>".
                                 "<td><input type='text' name='emailEdit' value='$email' class='form-control'></td>".
                                 "<td><select name='genderEdit' class='form-control'><option value='male'>Male</option><option value='female'>Feale</option></select></td>".
-                                "<td><input type='text' name='dobEdit' value='$dob' class='form-control'></td>".
+                                "<td><input type='date' name='dobEdit' value='$dob' class='form-control'></td>".
                             "</tr>";
                         }
                     } else {
