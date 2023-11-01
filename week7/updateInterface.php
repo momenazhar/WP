@@ -37,10 +37,10 @@
                             $gender = $row['gender'];
                             $dob = $row['dob'];
                             echo "<tr>".
-                                "<td><input type='text' disabled type='text' name='idEdit' value='$id' class='form-control'></td>".
+                                "<td><input type='text' readonly type='text' name='idEdit' value='$id' class='form-control'></td>".
                                 "<td><input type='text' name='nameEdit' value='$name' class='form-control'></td>".
                                 "<td><input type='text' name='emailEdit' value='$email' class='form-control'></td>".
-                                "<td><select name='genderEdit' class='form-control'><option value='male'>Male</option><option value='female'>Feale</option></select></td>".
+                                "<td><select name='genderEdit' class='form-control' value='$gender'><option value='male'>Male</option><option value='female'>Female</option></select></td>".
                                 "<td><input type='date' name='dobEdit' value='$dob' class='form-control'></td>".
                             "</tr>";
                         }
