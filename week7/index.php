@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="query.js"></script>
 </head>
 <body>
     <br>
@@ -25,23 +27,28 @@
                     <th>Gender</th>
                     <th>Date of Birth</th>
                 </tr>
-                <?php
-                if(mysqli_num_rows($result) > 0) {
-                    while($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['id'];
-                        echo "<tr>".
-                            "<td>".$row['id']."</td>".
-                            "<td>".$row['name']."</td>".
-                            "<td>".$row['email']."</td>".
-                            "<td>".$row['gender']."</td>".
-                            "<td>".$row['dob']."</td>".
-                            "<td><button id='$id'><i class='bi bi-trash-fill'/></button></td>".
-                        "</tr>";
+                    <?php
+                    if(mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                            $id = $row['id'];
+                            echo "<tr>".
+                                "<td>".$row['id']."</td>".
+                                "<td>".$row['name']."</td>".
+                                "<td>".$row['email']."</td>".
+                                "<td>".$row['gender']."</td>".
+                                "<td>".$row['dob']."</td>".
+                                "<form action='delete.php' method='GET'>".
+                                    "<td><button type='submit' name='id' value='$id' class='btn btn-danger'><i class='bi bi-trash-fill'/></button></td>".
+                                "</form>".
+                                "<form action='updateInterface.php' method='GET'>".
+                                    "<td><button type='submit' name='id' value='$id' class='btn btn-primary'><i class='bi bi-pencil-square' /></button></td>".
+                                "</form>".
+                            "</tr>";
+                        }
+                    } else {
+                        echo "No records";
                     }
-                } else {
-                    echo "No records";
-                }
-                ?>
+                    ?>
             </table>
         </div>
         <div class="container">
