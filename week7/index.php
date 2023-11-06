@@ -21,27 +21,27 @@
         <div class="container">
             <table class="table table-striped table-hover table-bordered">
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Gender</th>
-                    <th>Date of Birth</th>
+                    <th class='align-middle'>ID</th>
+                    <th class='align-middle'>Name</th>
+                    <th class='align-middle'>Email</th>
+                    <th class='align-middle'>Gender</th>
+                    <th class='align-middle'>Date of Birth</th>
                 </tr>
                     <?php
                     if(mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id'];
                             echo "<tr>".
-                                "<td>".$row['id']."</td>".
-                                "<td>".$row['name']."</td>".
-                                "<td>".$row['email']."</td>".
-                                "<td>".$row['gender']."</td>".
-                                "<td>".$row['dob']."</td>".
-                                "<form action='delete.php' method='GET'>".
-                                    "<td><button type='submit' name='id' value='$id' class='btn btn-danger'><i class='bi bi-trash-fill'/></button></td>".
+                                "<td class='align-middle'>".$row['id']."</td>".
+                                "<td class='align-middle'>".$row['name']."</td>".
+                                "<td class='align-middle'>".$row['email']."</td>".
+                                "<td class='align-middle'>".$row['gender']."</td>".
+                                "<td class='align-middle'>".$row['dob']."</td>".
+                                "<form action='deleteInterface.php' method='GET'>".
+                                    "<td class='align-middle text-center' style='margin: 0 !important;'><button type='submit' name='id' value='$id' class='btn btn-danger'><i class='bi bi-trash-fill'/></button></td>".
                                 "</form>".
                                 "<form action='updateInterface.php' method='GET'>".
-                                    "<td><button type='submit' name='id' value='$id' class='btn btn-primary'><i class='bi bi-pencil-square' /></button></td>".
+                                    "<td class='align-middle text-center' style='margin: 0 !important;'><button type='submit' name='id' value='$id' class='btn btn-primary'><i class='bi bi-pencil-square' /></button></td>".
                                 "</form>".
                             "</tr>";
                         }

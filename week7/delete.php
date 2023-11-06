@@ -1,7 +1,7 @@
 <?php
     include "connect.php";
 
-    $id = $_GET['id'];
+    $id = $_GET['idDel'];
 
     $query = "DELETE FROM `student` WHERE `id` = $id;";
 
